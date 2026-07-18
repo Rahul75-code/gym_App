@@ -18,7 +18,7 @@ export default function RootLayout({ children }) {
           <div className="topbar-actions">
             <nav className="nav-links">
               <Link href="/">Home</Link>
-              <Link href="/calculator">Calculator</Link>
+              <Link href="/BMI">BMI</Link>
               <Link href="/exercises">Exercises</Link>
               <Link href="/tracker">Tracker</Link>
               <Link href="/nutrition">Nutrition</Link>
