@@ -52,6 +52,9 @@ export default function HomePage() {
           <p className="eyebrow">Core experience</p>
           <h2>Everything a gym member needs in one place</h2>
         </div>
+        <div className="info-banner">
+          <p>Stay consistent with smart tools for training, nutrition, and self-tracking — all in one modern experience.</p>
+        </div>
         <div className="feature-grid">
           <Link className="feature-card" href="/calculator">
             <h3>BMI & Fitness Calculator</h3>

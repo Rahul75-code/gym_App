@@ -271,6 +271,19 @@ footer {
   color: var(--muted);
 }
 
+.info-banner {
+  margin: 1rem 0 1.5rem;
+  padding: 1rem 1.2rem;
+  border-radius: 16px;
+  background: rgba(28, 201, 160, 0.12);
+  border: 1px solid rgba(28, 201, 160, 0.2);
+}
+
+.info-banner p {
+  margin: 0;
+  color: #dff8f1;
+}
+
 @media (max-width: 900px) {
   .hero,
   .grid-2,
