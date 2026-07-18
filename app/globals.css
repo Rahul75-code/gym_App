@@ -8,6 +8,16 @@
   --border: rgba(255, 255, 255, 0.08);
 }
 
+:root[data-theme='light'] {
+  --bg: #f5f7fb;
+  --panel: #ffffff;
+  --text: #111827;
+  --muted: #5b6472;
+  --accent: #ff6b35;
+  --accent-2: #0f9b78;
+  --border: rgba(17, 24, 39, 0.1);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -60,6 +70,22 @@ a {
 
 .nav-links a:hover {
   color: var(--text);
+}
+
+.topbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.theme-toggle {
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  padding: 0.55rem 0.8rem;
+  border-radius: 999px;
+  cursor: pointer;
 }
 
 main {

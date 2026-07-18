@@ -1,5 +1,6 @@
 import './globals.css';
 import Link from 'next/link';
+import ThemeToggle from './ThemeToggle';
 
 export const metadata = {
   title: 'FitForge Gym',
@@ -14,14 +15,17 @@ export default function RootLayout({ children }) {
           <Link className="brand" href="/">
             FitForge
           </Link>
-          <nav className="nav-links">
-            <Link href="/">Home</Link>
-            <Link href="/calculator">Calculator</Link>
-            <Link href="/exercises">Exercises</Link>
-            <Link href="/tracker">Tracker</Link>
-            <Link href="/nutrition">Nutrition</Link>
-            <Link href="/blog">Blog</Link>
-          </nav>
+          <div className="topbar-actions">
+            <nav className="nav-links">
+              <Link href="/">Home</Link>
+              <Link href="/calculator">Calculator</Link>
+              <Link href="/exercises">Exercises</Link>
+              <Link href="/tracker">Tracker</Link>
+              <Link href="/nutrition">Nutrition</Link>
+              <Link href="/blog">Blog</Link>
+            </nav>
+            <ThemeToggle />
+          </div>
         </header>
         {children}
         <footer>
