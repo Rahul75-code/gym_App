@@ -1,8 +1,17 @@
 import Link from 'next/link';
+import Script from 'next/script';
 
 export default function HomePage() {
   return (
     <main>
+      <Script
+        id="adsense-init"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `(adsbygoogle = window.adsbygoogle || []).push({});`,
+        }}
+      />
+
       <section className="hero">
         <div className="hero-copy">
           <p className="eyebrow">Your fitness journey, powered by smart tools</p>
@@ -45,6 +54,17 @@ export default function HomePage() {
           <strong>24/7</strong>
           <span>Workout Inspiration</span>
         </article>
+      </section>
+
+      <section className="adsense-unit">
+        <ins
+          className="adsbygoogle"
+          style={{ display: 'block' }}
+          data-ad-client="ca-pub-2583537765669212"
+          data-ad-slot="3467369616"
+          data-ad-format="auto"
+          data-full-width-responsive="true"
+        ></ins>
       </section>
 
       <section className="section">
