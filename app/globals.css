@@ -56,6 +56,7 @@ a {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+  color: var(--text);
 }
 
 .nav-links {
@@ -65,7 +66,7 @@ a {
 }
 
 .nav-links a {
-  color: var(--muted);
+  color: rgba(245, 247, 251, 0.85);
 }
 
 .nav-links a:hover {
