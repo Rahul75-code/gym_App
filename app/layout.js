@@ -1,6 +1,5 @@
 import './globals.css';
 import Link from 'next/link';
-import Script from 'next/script';
 import ThemeToggle from './ThemeToggle';
 
 export const metadata = {
@@ -12,11 +11,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
-        <Script
+        <script
           async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2583537765669212"
           crossOrigin="anonymous"
-        />
+        ></script>
       </head>
       <body>
         <header className="topbar">
