@@ -1,17 +1,8 @@
 import Link from 'next/link';
-import Script from 'next/script';
 
 export default function HomePage() {
   return (
     <main>
-      <Script
-        id="adsense-init"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `(adsbygoogle = window.adsbygoogle || []).push({});`,
-        }}
-      />
-
       <section className="hero">
         <div className="hero-copy">
           <p className="eyebrow">Your fitness journey, powered by smart tools</p>

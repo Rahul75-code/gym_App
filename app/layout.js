@@ -1,5 +1,6 @@
 import './globals.css';
 import Link from 'next/link';
+import ConsentBanner from './ConsentBanner';
 import ThemeToggle from './ThemeToggle';
 
 export const metadata = {
@@ -10,14 +11,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <head>
-        <script
-          async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2583537765669212"
-          crossOrigin="anonymous"
-        ></script>
-      </head>
+      <head />
       <body>
+        <ConsentBanner />
         <header className="topbar">
           <Link className="brand" href="/">
             FitForge
