@@ -26,6 +26,8 @@ export default function RootLayout({ children }) {
               <Link href="/tracker">Tracker</Link>
               <Link href="/nutrition">Nutrition</Link>
               <Link href="/blog">Blog</Link>
+              <Link href="/login">Login</Link>
+              <Link href="/signup">Signup</Link>
             </nav>
             <ThemeToggle />
           </div>
