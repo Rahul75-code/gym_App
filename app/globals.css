@@ -275,7 +275,8 @@ body {
 }
 
 .grid-2,
-.grid-3 {
+.grid-3,
+.grid-4 {
   display: grid;
   gap: 1rem;
 }
@@ -286,6 +287,44 @@ body {
 
 .grid-3 {
   grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.protein-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 1rem;
+}
+
+.protein-section {
+  margin-top: 2rem;
+}
+
+.protein-card ul,
+.protein-table ul,
+.protein-guide ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0.75rem 0 0;
+}
+
+.protein-card li,
+.protein-table li,
+.protein-guide li {
+  margin-bottom: 0.65rem;
+  color: var(--muted);
+}
+
+.protein-card .btn-secondary {
+  margin-top: 1rem;
+}
+
+.protein-table li strong {
+  color: white;
 }
 
 label {
@@ -367,7 +406,10 @@ footer {
   .hero,
   .grid-2,
   .feature-grid,
-  .grid-3 {
+  .grid-3,
+  .grid-4,
+  .roadmap-table-wrap,
+  .roadmap-list-wrap {
     grid-template-columns: 1fr;
   }
 
@@ -388,3 +430,83 @@ footer {
     gap: 0.6rem;
   }
 }
+
+.roadmap-section {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+
+.roadmap-intro {
+  background: linear-gradient(135deg, rgba(28, 201, 160, 0.2), rgba(255, 107, 53, 0.2));
+}
+
+.roadmap-focus {
+  margin: 0.75rem 0 1rem;
+  color: var(--muted);
+}
+
+.roadmap-table-wrap {
+  overflow-x: auto;
+}
+
+.roadmap-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+
+.roadmap-table th,
+.roadmap-table td {
+  text-align: left;
+  padding: 0.9rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.roadmap-table th {
+  color: var(--text);
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+
+.roadmap-table td {
+  color: var(--muted);
+}
+
+.roadmap-week h3 {
+  margin-bottom: 0.5rem;
+}
+
+.roadmap-list-wrap {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.roadmap-list-wrap h4 {
+  margin-bottom: 0.75rem;
+}
+
+.roadmap-list-wrap ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.roadmap-list-wrap li {
+  margin-bottom: 0.65rem;
+  color: var(--muted);
+}
+
+.roadmap-notes ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.roadmap-notes li {
+  margin-bottom: 0.75rem;
+  color: var(--muted);
+}
+
