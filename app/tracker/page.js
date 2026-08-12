@@ -1,21 +1,35 @@
 "use client";
 
 import { useEffect, useRef, useState } from 'react';
+import { getTrackerEntries, saveTrackerEntry } from '../lib/supabase/memberService';
 
 export default function TrackerPage() {
   const canvasRef = useRef(null);
-  const [entries, setEntries] = useState([
-    { week: 'Week 1', weight: 78 },
-    { week: 'Week 2', weight: 77 },
-    { week: 'Week 3', weight: 76 },
-    { week: 'Week 4', weight: 75 },
-  ]);
+  const [entries, setEntries] = useState([]);
   const [week, setWeek] = useState('');
   const [weight, setWeight] = useState('');
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
+  const [message, setMessage] = useState('');
+
+  useEffect(() => {
+    async function loadEntries() {
+      try {
+        const data = await getTrackerEntries();
+        setEntries(data.map((entry) => ({ id: entry.id, week: entry.week, weight: Number(entry.weight) })));
+      } catch (err) {
+        setError(err.message || 'Unable to load your tracker data.');
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    loadEntries();
+  }, []);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas || entries.length === 0) return;
     const ctx = canvas.getContext('2d');
     const labels = entries.map((entry) => entry.week);
     const values = entries.map((entry) => entry.weight);
@@ -60,12 +74,22 @@ export default function TrackerPage() {
     });
   }, [entries]);
 
-  function addEntry(event) {
+  async function addEntry(event) {
     event.preventDefault();
     if (!week || !weight) return;
-    setEntries([...entries, { week, weight: Number(weight) }]);
-    setWeek('');
-    setWeight('');
+
+    setError('');
+    setMessage('');
+
+    try {
+      const created = await saveTrackerEntry({ week, weight });
+      setEntries((current) => [...current, { id: created.id, week: created.week, weight: Number(created.weight) }]);
+      setWeek('');
+      setWeight('');
+      setMessage('Progress entry saved to Supabase.');
+    } catch (err) {
+      setError(err.message || 'Unable to save your progress entry.');
+    }
   }
 
   return (
@@ -79,6 +103,8 @@ export default function TrackerPage() {
       <div className="grid-2">
         <div className="form-card">
           <h2>Log a new entry</h2>
+          {error ? <div className="auth-alert error">{error}</div> : null}
+          {message ? <div className="auth-alert success">{message}</div> : null}
           <form onSubmit={addEntry}>
             <label htmlFor="week">Week</label>
             <input id="week" type="text" placeholder="Week 5" required value={week} onChange={(e) => setWeek(e.target.value)} />
@@ -88,6 +114,7 @@ export default function TrackerPage() {
 
             <button className="btn btn-primary" type="submit">Add entry</button>
           </form>
+          {loading ? <p>Loading your saved entries...</p> : null}
         </div>
 
         <div className="card">

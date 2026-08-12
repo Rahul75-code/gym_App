@@ -12,8 +12,8 @@ export default function HomePage() {
             track your progress, and explore nutrition guidance all in one place.
           </p>
           <div className="hero-actions">
-            <Link className="btn btn-primary" href="/calculator">
-              Try the Fitness Calculator
+            <Link className="btn btn-primary" href="/BMI">
+              Try BMI
             </Link>
             <Link className="btn btn-secondary" href="/exercises">
               Explore Exercises
@@ -67,8 +67,8 @@ export default function HomePage() {
           <p>Stay consistent with smart tools for training, nutrition, and self-tracking — all in one modern experience.</p>
         </div>
         <div className="feature-grid">
-          <Link className="feature-card" href="/calculator">
-            <h3>BMI & Fitness Calculator</h3>
+          <Link className="feature-card" href="/BMI">
+            <h3>BMI</h3>
             <p>Quickly estimate your BMI, BMR, and fitness targets.</p>
           </Link>
           <Link className="feature-card" href="/tracker">

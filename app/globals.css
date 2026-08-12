@@ -616,6 +616,18 @@ footer {
   padding: 1rem;
 }
 
+.auth-alert.success {
+  background: rgba(28, 201, 160, 0.14);
+  border-color: rgba(28, 201, 160, 0.22);
+  color: #dff8f1;
+}
+
+.auth-alert.error {
+  background: rgba(255, 107, 53, 0.16);
+  border-color: rgba(255, 107, 53, 0.26);
+  color: #ffe5dc;
+}
+
 .auth-grid-right {
   display: grid;
   gap: 1rem;
