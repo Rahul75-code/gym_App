@@ -198,7 +198,7 @@ export async function getTrackerEntries() {
   const { data: memberData, error: memberError } = await supabase
     .from('members')
     .select('id')
-    .eq('auth_user_id', user.id)
+    .eq('user_id', user.id)
     .maybeSingle();
 
   if (memberError) throw memberError;

@@ -19,23 +19,15 @@ Last updated: 2026-11-03
 - React
 - CSS
 
-## Getting Started
+## Database setup
 
-1. Install dependencies
-   ```bash
-   npm install
-   ```
-
-2. Run the development server
-   ```bash
-   npm run dev
-   ```
-
-3. Open http://localhost:3000 in your browser
+For Supabase credentials, schema migration, tracker verification, and
+troubleshooting, see the [database setup guide](./DATABASE_SETUP.md).
 
 ## Project Structure
 
 - app/ - main Next.js pages and layout
+- migrations/ - Supabase database schema and row-level security policies
 - package.json - project scripts and dependencies
 
 ## Deployment
