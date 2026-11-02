@@ -1,4 +1,5 @@
 import './globals.css';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import Link from 'next/link';
 import ConsentBanner from './ConsentBanner';
 import ThemeToggle from './ThemeToggle';
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
             <Link href="/privacy-policy">Privacy Policy</Link>
           </nav>
         </footer>
+        <SpeedInsights />
       </body>
     </html>
   );
