@@ -1,5 +1,6 @@
 "use client";
 
+// Last updated: 2026-11-03
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { getAllMembers, getCurrentMember, signOutMember } from '../lib/supabase/memberService';

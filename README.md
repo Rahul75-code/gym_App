@@ -2,6 +2,8 @@
 
 FitForge is a modern fitness website built with Next.js. It includes a home page, BMI and fitness calculator, exercises by muscle group, progress tracker, nutrition corner, and blog content.
 
+Last updated: 2026-11-03
+
 ## Features
 
 - Modern landing page for a fitness brand

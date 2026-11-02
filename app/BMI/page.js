@@ -1,5 +1,6 @@
 "use client";
 
+// Last updated: 2026-11-03
 import { useState } from 'react';
 
 export default function CalculatorPage() {

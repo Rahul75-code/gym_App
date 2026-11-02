@@ -1,3 +1,4 @@
+// Last updated: 2026-11-03
 import Link from 'next/link';
 
 export default function HomePage() {
