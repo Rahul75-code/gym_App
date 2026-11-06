@@ -95,9 +95,6 @@ export default function SignupPage() {
         <div className="auth-card">
           <h3>Create account</h3>
           <form className="auth-form" onSubmit={handleSubmit}>
-            {!isSupabaseConfigured() ? (
-              <div className="auth-alert error">Supabase is not configured. Set `NEXT_PUBLIC_SUPABASE_ANON_KEY` in <code>.env.local</code>.</div>
-            ) : null}
             {error ? <div className="auth-alert error">{error}</div> : null}
             {message ? <div className="auth-alert success">{message}</div> : null}
 
