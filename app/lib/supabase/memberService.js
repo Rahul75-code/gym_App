@@ -27,11 +27,10 @@ export async function registerMember({ fullName, email, password, goal }) {
     throw signUpError;
   }
 
-
   const userId = authData?.user?.id;
 
   if (userId) {
-    const payloadVariants = [
+    const { error: memberError } = await supabase.from('members').insert([
       {
         user_id: userId,
         full_name: fullName.trim(),
@@ -39,50 +38,11 @@ export async function registerMember({ fullName, email, password, goal }) {
         goal: goal || 'maintenance',
         is_admin: isAdminUser,
       },
-      {
-        auth_user_id: userId,
-        full_name: fullName.trim(),
-        email: normalizedEmail,
-        goal: goal || 'maintenance',
-        is_admin: isAdminUser,
-      },
-      {
-        user_id: userId,
-        full_name: fullName.trim(),
-        goal: goal || 'maintenance',
-        is_admin: isAdminUser,
-      },
-      {
-        auth_user_id: userId,
-        full_name: fullName.trim(),
-        goal: goal || 'maintenance',
-        is_admin: isAdminUser,
-      },
-    ];
-
-    let memberError = null;
-
-    for (const payload of payloadVariants) {
-      const { error } = await supabase.from('members').insert([payload]);
-
-      if (!error) {
-        break;
-      }
-
-      memberError = error;
-
-      if (error?.message?.includes('does not exist') || error?.message?.includes("Could not find the 'email' column")) {
-        continue;
-      }
-
-      throw error;
-    }
+    ]);
 
     if (memberError) {
       throw memberError;
     }
-
-    // No separate admin table is required; admin access is derived from the members row.
   }
 
   return authData;

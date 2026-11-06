@@ -15,7 +15,7 @@ prevents users from accessing another user's rows.
   queries. Tracker rows are associated with the signed-in user's `user_id`.
 - `app/tracker/page.js` loads entries when the page opens and saves entries
   when the form is submitted.
-- `migrations/0001_init.sql` defines the `members` and `trackers` tables,
+- `db-schema/0001_init.sql` defines the `members` and `trackers` tables,
   indexes, member-id trigger, and authenticated-user RLS policies.
 
 ## Connect a Supabase project
@@ -28,14 +28,13 @@ prevents users from accessing another user's rows.
    Copy-Item .env.example .env.local
    ```
    Set `NEXT_PUBLIC_SUPABASE_URL` to the Project URL and
-   `NEXT_PUBLIC_SUPABASE_ANON_KEY` to the anon/publishable key. These are the
-   only client-side values required. Never put a service-role key in a
+   `NEXT_PUBLIC_SUPABASE_ANON_KEY` to the anon/publishable key. These are
+   the only client-side values required. Never put a service-role key in a
    `NEXT_PUBLIC_` variable or commit `.env.local`; local env files are ignored
    by Git.
 
 3. In the Supabase **SQL Editor**, run
-   [`migrations/0001_init.sql`](./migrations/0001_init.sql). The migration is
-   designed to be safe to re-run.
+   [`db-schema/main_schema.sql`](./db-schema/main_schema.sql). The migration is designed to be safe to re-run.
 
 4. Install dependencies if needed and start (or restart) Next.js so it loads
    the environment variables:
@@ -76,4 +75,4 @@ after signing in is the end-to-end check.
 At the last connection check (2026-11-03), the URL configured in the local
 `.env.local` could not be resolved by DNS. The app build succeeded, but a live
 database read/write was not verified. Confirm the project URL before testing
-again.
+  again.

@@ -174,94 +174,13 @@ create trigger trackers_fill_member_id
   for each row execute function public.tg_trackers_fill_member_id();
 
 -- ---------------------------------------------------------------------------
--- 3. Row-Level Security
+-- 3. Row-Level Security (Disabled for Development)
 -- ---------------------------------------------------------------------------
-alter table public.members  enable row level security;
-alter table public.trackers enable row level security;
+-- RLS is disabled during the development phase to simplify testing.
+-- To enable it in production, uncomment the lines below or re-apply policies.
 
--- members ---------------------------------------------------------------------
-drop policy if exists members_select_own on public.members;
-create policy members_select_own on public.members
-  for select
-  to authenticated
-  using (auth.uid() = user_id);
-
-drop policy if exists members_select_admin_all on public.members;
-create policy members_select_admin_all on public.members
-  for select
-  to authenticated
-  using (
-    exists (
-      select 1 from public.members m2
-      where m2.user_id = auth.uid() and m2.is_admin = true
-    )
-  );
-
-drop policy if exists members_insert_self on public.members;
-create policy members_insert_self on public.members
-  for insert
-  to authenticated
-  with check (auth.uid() = user_id);
-
-drop policy if exists members_update_self on public.members;
-create policy members_update_self on public.members
-  for update
-  to authenticated
-  using (auth.uid() = user_id)
-  with check (auth.uid() = user_id);
-
-drop policy if exists members_delete_self on public.members;
-create policy members_delete_self on public.members
-  for delete
-  to authenticated
-  using (auth.uid() = user_id);
-
--- Admin override on members: insert/update/delete (mirrors what the code
--- would do when not yet bootstrapped as a user). Most admin flows go via
--- service role, but this lets rai.rahul.kumar509@gmail.com maintain rows
--- from the client when needed.
-drop policy if exists members_admin_modify on public.members;
-create policy members_admin_modify on public.members
-  for all
-  to authenticated
-  using (
-    exists (
-      select 1 from public.members m2
-      where m2.user_id = auth.uid() and m2.is_admin = true
-    )
-  )
-  with check (
-    exists (
-      select 1 from public.members m2
-      where m2.user_id = auth.uid() and m2.is_admin = true
-    )
-  );
-
--- trackers --------------------------------------------------------------------
-drop policy if exists trackers_select_own on public.trackers;
-create policy trackers_select_own on public.trackers
-  for select
-  to authenticated
-  using (auth.uid() = user_id);
-
-drop policy if exists trackers_insert_own on public.trackers;
-create policy trackers_insert_own on public.trackers
-  for insert
-  to authenticated
-  with check (auth.uid() = user_id);
-
-drop policy if exists trackers_update_own on public.trackers;
-create policy trackers_update_own on public.trackers
-  for update
-  to authenticated
-  using (auth.uid() = user_id)
-  with check (auth.uid() = user_id);
-
-drop policy if exists trackers_delete_own on public.trackers;
-create policy trackers_delete_own on public.trackers
-  for delete
-  to authenticated
-  using (auth.uid() = user_id);
+-- alter table public.members  enable row level security;
+-- alter table public.trackers enable row level security;
 
 -- ---------------------------------------------------------------------------
 -- 4. Realtime (optional)

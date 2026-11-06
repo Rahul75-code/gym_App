@@ -1,6 +1,6 @@
 "use client";
 
-// Last updated: 2026-11-03
+// Last updated: 2026-11-07
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -30,8 +30,15 @@ export default function LoginPage() {
     try {
       await signInMember({ email: form.email, password: form.password });
       const member = await getCurrentMember();
+      
+      if (!member) {
+        setError('Account not found. Please contact support.');
+        setLoading(false);
+        return;
+      }
+
       setMessage('Signed in successfully.');
-      if (member?.is_admin) {
+      if (member.is_admin) {
         router.push('/admin');
       } else {
         router.push('/tracker');

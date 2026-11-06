@@ -1,10 +1,10 @@
 "use client";
 
-// Last updated: 2026-11-03
+// Last updated: 2026-11-07
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { isSupabaseConfigured } from '../lib/supabase/client';
+import { registerMember } from '../lib/supabase/memberService';
 
 export default function SignupPage() {
   const router = useRouter();
@@ -53,23 +53,15 @@ export default function SignupPage() {
     setLoading(true);
 
     try {
-      const response = await fetch('/api/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          fullName: form.fullName,
-          email: form.email,
-          password: form.password,
-          goal: form.goal,
-        }),
+      const response = await registerMember({
+        fullName: form.fullName,
+        email: form.email,
+        password: form.password,
+        goal: form.goal,
       });
 
-      const payload = await response.json();
-
-      if (!response.ok || !payload?.success) {
-        throw new Error(payload?.error || 'Unable to create your account.');
+      if (!response) {
+        throw new Error('Unable to create your account.');
       }
 
       setMessage('Account created successfully. Redirecting to your tracker...');
@@ -138,11 +130,14 @@ export default function SignupPage() {
             </div>
 
             <label htmlFor="signup-goal">Fitness Goal</label>
-            <select id="signup-goal" name="goal" value={form.goal} onChange={handleChange}>
+            <select id="signup-goal" name="goal" value={form.goal} onChange={handleChange} required>
               <option value="">Select a goal</option>
-              <option value="weight-loss">Weight Loss</option>
-              <option value="muscle-gain">Muscle Gain</option>
               <option value="maintenance">Maintenance</option>
+              <option value="bulking">Bulking</option>
+              <option value="cutting">Cutting</option>
+              <option value="endurance">Endurance</option>
+              <option value="flexibility">Flexibility</option>
+              <option value="strength">Strength</option>
             </select>
 
             <button className="btn btn-primary" type="submit" disabled={loading}>
