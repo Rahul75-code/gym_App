@@ -1,14 +1,6 @@
-import { supabase, isSupabaseConfigured } from './client';
-
-function ensureConfigured() {
-  if (!isSupabaseConfigured() || !supabase) {
-    throw new Error('Supabase is not configured. Add your real anon key to .env.local.');
-  }
-}
+import { supabase } from './client';
 
 export async function registerMember({ fullName, email, password, goal }) {
-  ensureConfigured();
-
   const normalizedEmail = email.trim().toLowerCase();
   const isAdminUser = normalizedEmail === 'rai.rahul.kumar509@gmail.com';
 
@@ -49,8 +41,6 @@ export async function registerMember({ fullName, email, password, goal }) {
 }
 
 export async function signInMember({ email, password }) {
-  ensureConfigured();
-
   const normalizedEmail = email.trim().toLowerCase();
   const { data, error } = await supabase.auth.signInWithPassword({
     email: normalizedEmail,
@@ -65,20 +55,17 @@ export async function signInMember({ email, password }) {
 }
 
 export async function signOutMember() {
-  ensureConfigured();
   const { error } = await supabase.auth.signOut();
   if (error) throw error;
 }
 
 export async function getCurrentSession() {
-  ensureConfigured();
   const { data, error } = await supabase.auth.getSession();
   if (error) throw error;
   return data;
 }
 
 export async function getCurrentMember() {
-  ensureConfigured();
   const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
   if (sessionError) throw sessionError;
 
@@ -103,7 +90,6 @@ export async function getCurrentMember() {
 }
 
 export async function getAllMembers() {
-  ensureConfigured();
   const { data, error } = await supabase
     .from('members')
     .select('*')
@@ -114,7 +100,6 @@ export async function getAllMembers() {
 }
 
 export async function saveTrackerEntry({ week, weight }) {
-  ensureConfigured();
   const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
   if (sessionError) throw sessionError;
 
@@ -148,7 +133,6 @@ export async function saveTrackerEntry({ week, weight }) {
 }
 
 export async function getTrackerEntries() {
-  ensureConfigured();
   const { data: sessionData, error: sessionError } = await supabase.auth.getSession();
   if (sessionError) throw sessionError;
 
