@@ -3,6 +3,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import Link from 'next/link';
 import ConsentBanner from './ConsentBanner';
 import ThemeToggle from './ThemeToggle';
+import Navbar from './components/Navbar';
 
 export const metadata = {
   title: 'FitForge Gym',
@@ -20,17 +21,7 @@ export default function RootLayout({ children }) {
             FitForge
           </Link>
           <div className="topbar-actions">
-            <nav className="nav-links">
-              <Link href="/">Home</Link>
-              <Link href="/BMI">BMI</Link>
-              <Link href="/exercises">Exercises</Link>
-              <Link href="/tracker">Tracker</Link>
-              <Link href="/nutrition">Nutrition</Link>
-              <Link href="/blog">Blog</Link>
-              <Link href="/login">Login</Link>
-              <Link href="/signup">Signup</Link>
-              <Link href="/admin">Admin</Link>
-            </nav>
+            <Navbar />
             <ThemeToggle />
           </div>
         </header>

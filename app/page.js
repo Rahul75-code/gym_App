@@ -88,10 +88,10 @@ export default function HomePage() {
             <h3>Blog & Articles</h3>
             <p>Read useful tips on fitness, recovery, and motivation.</p>
           </Link>
-          <div className="feature-card highlight-card">
+          <Link className="feature-card highlight-card" href="/signup">
             <h3>Join the movement</h3>
             <p>Build a healthy routine and stay consistent with smart support.</p>
-          </div>
+          </Link>
         </div>
       </section>
     </main>

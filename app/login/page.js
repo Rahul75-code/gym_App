@@ -43,6 +43,7 @@ export default function LoginPage() {
       } else {
         router.push('/tracker');
       }
+      router.refresh();
     } catch (err) {
       setError(err.message || 'Unable to sign in. Please check your credentials.');
     } finally {
