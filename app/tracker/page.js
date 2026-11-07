@@ -100,13 +100,22 @@ export default function TrackerPage() {
 
   return (
     <main>
-      <section className="page-head">
-        <p className="eyebrow">Keep momentum</p>
-        <h1>Progress Tracker</h1>
-        <p>
-          {member 
-            ? `Welcome back, ${member.full_name}! Your current goal: ${member.goal.toUpperCase()}.` 
-            : "Track your weekly weight changes and stay motivated with a simple visual chart."}
+      <section className="page-head" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+        <div>
+          <p className="eyebrow">Keep momentum</p>
+          <h1 style={{ marginTop: '0' }}>Progress Tracker</h1>
+          <p style={{ fontSize: '1rem', color: 'inherit' }}>
+            {member 
+              ? (
+                <>
+                  Welcome back, <span style={{ fontSize: '1.4rem', fontWeight: 'bold', color: '#fdfd96' }}>{member.full_name}</span>! Your current goal: <span style={{ fontSize: '1.4rem', fontWeight: 'bold', color: '#fdfd96' }}>{member.goal.toUpperCase()}</span>.
+                </>
+              ) 
+              : "Track your weekly weight changes and stay motivated with a simple visual chart."}
+          </p>
+        </div>
+        <p className="eyebrow" style={{ textAlign: 'right', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+          <span>👤</span> {member ? member.full_name : 'Loading member...'}
         </p>
       </section>
 
