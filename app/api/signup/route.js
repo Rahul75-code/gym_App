@@ -100,6 +100,10 @@ export async function POST(request) {
 
     const client = createSupabaseClient(Boolean(serviceRoleKey && !isPlaceholder(serviceRoleKey)));
 
+    if (!client) {
+      return NextResponse.json({ error: 'Authentication service is currently unavailable.' }, { status: 500 });
+    }
+
     let authData;
     if (serviceRoleKey && !isPlaceholder(serviceRoleKey)) {
       const { data, error } = await client.auth.admin.createUser({

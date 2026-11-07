@@ -64,8 +64,12 @@ export default function SignupPage() {
         throw new Error('Unable to create your account.');
       }
 
-      setMessage('Account created successfully. Redirecting to your tracker...');
-      router.push('/tracker');
+      setMessage('Account created successfully! Redirecting to your tracker...');
+      
+      // Small delay to let the user see the success message before redirecting
+      setTimeout(() => {
+        router.push('/tracker');
+      }, 2000);
     } catch (err) {
       setError(err.message || 'Unable to create your account.');
     } finally {

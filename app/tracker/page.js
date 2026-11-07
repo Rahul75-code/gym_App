@@ -2,11 +2,12 @@
 
 // Last updated: 2026-11-03
 import { useEffect, useRef, useState } from 'react';
-import { getTrackerEntries, saveTrackerEntry } from '../lib/supabase/memberService';
+import { getTrackerEntries, saveTrackerEntry, getCurrentMember } from '../lib/supabase/memberService';
 
 export default function TrackerPage() {
   const canvasRef = useRef(null);
   const [entries, setEntries] = useState([]);
+  const [member, setMember] = useState(null);
   const [week, setWeek] = useState('');
   const [weight, setWeight] = useState('');
   const [loading, setLoading] = useState(true);
@@ -16,6 +17,10 @@ export default function TrackerPage() {
   useEffect(() => {
     async function loadEntries() {
       try {
+        // Load member profile
+        const memberData = await getCurrentMember();
+        setMember(memberData);
+
         const data = await getTrackerEntries();
         setEntries(data.map((entry) => ({ id: entry.id, week: entry.week, weight: Number(entry.weight) })));
       } catch (err) {
@@ -98,7 +103,11 @@ export default function TrackerPage() {
       <section className="page-head">
         <p className="eyebrow">Keep momentum</p>
         <h1>Progress Tracker</h1>
-        <p>Track your weekly weight changes and stay motivated with a simple visual chart.</p>
+        <p>
+          {member 
+            ? `Welcome back, ${member.full_name}! Your current goal: ${member.goal.toUpperCase()}.` 
+            : "Track your weekly weight changes and stay motivated with a simple visual chart."}
+        </p>
       </section>
 
       <div className="grid-2">
