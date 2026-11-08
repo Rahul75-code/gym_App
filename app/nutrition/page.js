@@ -9,20 +9,20 @@ export default function NutritionPage() {
       </section>
 
       <div className="grid-4">
-        <div className="card">
-          <h2>Meal Plan Tip</h2>
+        <div className="card nutri-card nutri-meal">
+          <h2><span className="icon">🥗</span> Meal Plan Tip</h2>
           <p>Balance protein, complex carbs, and healthy fats in every meal to stay energized and support muscle recovery.</p>
         </div>
-        <div className="card">
-          <h2>Healthy Recipe</h2>
+        <div className="card nutri-card nutri-recipe">
+          <h2><span className="icon">🍳</span> Healthy Recipe</h2>
           <p>Try a grilled chicken bowl with rice, avocado, greens, and a light dressing for a quick post-workout lunch.</p>
         </div>
-        <div className="card">
-          <h2>Supplement Guide</h2>
+        <div className="card nutri-card nutri-supp">
+          <h2><span className="icon">💊</span> Supplement Guide</h2>
           <p>Use supplements carefully and focus first on hydration, sleep, and a solid diet before adding extra products.</p>
         </div>
-        <div className="card protein-card">
-          <h2>Protein Sources</h2>
+        <div className="card nutri-card nutri-protein protein-card">
+          <h2><span className="icon">🥩</span> Protein Sources</h2>
           <p>Choose high-quality protein every day to fuel recovery and maintain lean muscle.</p>
           <ul>
             <li>Chicken breast — 31 g/100 g</li>
@@ -76,8 +76,8 @@ export default function NutritionPage() {
         <p>Good nutrition is built on consistency, whole foods, and realistic habits. These practical tips help you stay on track no matter how busy your day gets.</p>
 
         <div className="grid-2">
-          <div>
-            <h3>Smart Eating Habits</h3>
+          <div className="card">
+            <h3><span className="icon">🍏</span> Smart Eating Habits</h3>
             <ul>
               <li>Start with protein at every meal to support strength and fullness.</li>
               <li>Choose whole grains like oats, quinoa, and brown rice instead of refined carbs.</li>
@@ -85,13 +85,13 @@ export default function NutritionPage() {
               <li>Drink water regularly throughout the day — aim for at least 8 cups.</li>
             </ul>
           </div>
-          <div>
-            <h3>Meal Ideas</h3>
+          <div className="card">
+            <h3><span className="icon">🍱</span> Meal Ideas</h3>
             <ul>
-              <li>Breakfast: Greek yogurt with berries, nuts, and a drizzle of honey.</li>
-              <li>Lunch: Turkey and veggie wrap with hummus, spinach, and whole-wheat tortilla.</li>
-              <li>Dinner: Salmon with roasted sweet potatoes, broccoli, and a squeeze of lemon.</li>
-              <li>Snack: Apple slices with almond butter or a smoothie with banana and spinach.</li>
+              <li><strong>Breakfast:</strong> Greek yogurt with berries, nuts, and a drizzle of honey.</li>
+              <li><strong>Lunch:</strong> Turkey and veggie wrap with hummus, spinach, and whole-wheat tortilla.</li>
+              <li><strong>Dinner:</strong> Salmon with roasted sweet potatoes, broccoli, and a squeeze of lemon.</li>
+              <li><strong>Snack:</strong> Apple slices with almond butter or a smoothie with banana and spinach.</li>
             </ul>
           </div>
         </div>

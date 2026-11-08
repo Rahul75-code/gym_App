@@ -14,16 +14,16 @@ export default function HomePage() {
           </p>
           <div className="hero-actions">
             <Link className="btn btn-primary" href="/BMI">
-              Try BMI
+              🚀 Try BMI
             </Link>
             <Link className="btn btn-secondary" href="/exercises">
-              Explore Exercises
+              🏋️ Explore Exercises
             </Link>
           </div>
         </div>
 
         <div className="hero-card">
-          <h3>What you can do here</h3>
+          <h3><span className="icon">🎯</span> What you can do here</h3>
           <ul>
             <li>Plan workouts by muscle group</li>
             <li>Measure BMI and calorie needs</li>
@@ -69,27 +69,27 @@ export default function HomePage() {
         </div>
         <div className="feature-grid">
           <Link className="feature-card" href="/BMI">
-            <h3>BMI</h3>
+            <h3><span className="icon">⚖️</span> BMI</h3>
             <p>Quickly estimate your BMI, BMR, and fitness targets.</p>
           </Link>
           <Link className="feature-card" href="/tracker">
-            <h3>Progress Tracker</h3>
+            <h3><span className="icon">📈</span> Progress Tracker</h3>
             <p>Visualize workouts, strength gains, and personal milestones.</p>
           </Link>
           <Link className="feature-card" href="/nutrition">
-            <h3>Nutrition Corner</h3>
+            <h3><span className="icon">🍎</span> Nutrition Corner</h3>
             <p>Get meal plans, healthy recipes, and practical guidance.</p>
           </Link>
           <Link className="feature-card" href="/exercises">
-            <h3>Exercises by Muscle Group</h3>
+            <h3><span className="icon">💪</span> Exercises by Muscle Group</h3>
             <p>Explore beginner to advanced exercises grouped by target muscles.</p>
           </Link>
           <Link className="feature-card" href="/blog">
-            <h3>Blog & Articles</h3>
+            <h3><span className="icon">📚</span> Blog & Articles</h3>
             <p>Read useful tips on fitness, recovery, and motivation.</p>
           </Link>
           <Link className="feature-card highlight-card" href="/signup">
-            <h3>Join the movement</h3>
+            <h3><span className="icon">🌟</span> Join the movement</h3>
             <p>Build a healthy routine and stay consistent with smart support.</p>
           </Link>
         </div>

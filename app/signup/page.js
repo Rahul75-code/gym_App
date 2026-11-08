@@ -87,12 +87,12 @@ export default function SignupPage() {
 
       <div className="auth-grid">
         <div className="auth-panel">
-          <h2>New Member Signup</h2>
+          <h2><span className="icon">🚀</span> New Member Signup</h2>
           <p>Build an account that grows with your goals. Add your fitness objective and keep motivated from day one.</p>
-          <ul>
-            <li>Full name, email, and strong password entry.</li>
-            <li>Fitness goal stored in your member profile.</li>
-            <li>Admin access is granted automatically for the configured email.</li>
+          <ul style={{ marginTop: '1rem' }}>
+            <li>📝 Full name, email, and strong password entry.</li>
+            <li>🎯 Fitness goal stored in your member profile.</li>
+            <li>👑 Admin access is granted automatically for the configured email.</li>
           </ul>
         </div>
 

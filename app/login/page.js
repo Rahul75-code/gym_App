@@ -61,12 +61,12 @@ export default function LoginPage() {
 
       <div className="auth-grid">
         <div className="auth-panel">
-          <h2>Login to FitForge</h2>
+          <h2><span className="icon">⚡</span> Login to FitForge</h2>
           <p>Enter your email and password to continue. Keep your habits consistent and your goals in reach.</p>
-          <ul>
-            <li>Secure sessions powered by Supabase Auth.</li>
-            <li>Fast access to workout trackers and nutrition guides.</li>
-            <li>Remember Me option for trusted devices.</li>
+          <ul style={{ marginTop: '1rem' }}>
+            <li>✨ Secure sessions powered by Supabase Auth.</li>
+            <li>🚀 Fast access to workout trackers and nutrition guides.</li>
+            <li>🔒 Remember Me option for trusted devices.</li>
           </ul>
         </div>
 

@@ -9,16 +9,16 @@ export default function BlogPage() {
       </section>
 
       <div className="grid-3">
-        <article className="article-card">
-          <h2>Why consistency beats intensity</h2>
+        <article className="article-card blog-card blog-mindset">
+          <h2><span className="icon">🧠</span> Why consistency beats intensity</h2>
           <p>Small repeated actions create greater progress over time than occasional extreme effort.</p>
         </article>
-        <article className="article-card">
-          <h2>How to prevent workout injuries</h2>
+        <article className="article-card blog-card blog-recovery">
+          <h2><span className="icon">🛡️</span> How to prevent workout injuries</h2>
           <p>Warm up, use correct form, and allow your body enough recovery time between sessions.</p>
         </article>
-        <article className="article-card">
-          <h2>Fitness motivation for busy weeks</h2>
+        <article className="article-card blog-card blog-routine">
+          <h2><span className="icon">📅</span> Fitness motivation for busy weeks</h2>
           <p>Short workouts still count and can help you keep the habit strong during packed schedules.</p>
         </article>
       </div>

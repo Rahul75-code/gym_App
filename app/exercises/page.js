@@ -1,4 +1,4 @@
-// Last updated: 2026-11-03
+// Last updated: 2026-11-08
 export default function ExercisesPage() {
   return (
     <main>
@@ -9,8 +9,8 @@ export default function ExercisesPage() {
       </section>
 
       <div className="grid-3">
-        <div className="card">
-          <h2>Chest</h2>
+        <div className="card exe-card exe-chest">
+          <h2><span className="icon">💪</span> Chest</h2>
           <div className="exercise-list">
             <div><strong>Push-Ups</strong><br /><span className="tag">Beginner</span><span className="tag">Bodyweight</span></div>
             <div><strong>Bench Press</strong><br /><span className="tag">Intermediate</span><span className="tag">Strength</span></div>
@@ -18,8 +18,8 @@ export default function ExercisesPage() {
           </div>
         </div>
 
-        <div className="card">
-          <h2>Back</h2>
+        <div className="card exe-card exe-back">
+          <h2><span className="icon">🏋️</span> Back</h2>
           <div className="exercise-list">
             <div><strong>Pull-Ups</strong><br /><span className="tag">Intermediate</span><span className="tag">Upper back</span></div>
             <div><strong>Barbell Rows</strong><br /><span className="tag">Intermediate</span><span className="tag">Pull</span></div>
@@ -27,8 +27,8 @@ export default function ExercisesPage() {
           </div>
         </div>
 
-        <div className="card">
-          <h2>Legs</h2>
+        <div className="card exe-card exe-legs">
+          <h2><span className="icon">🦵</span> Legs</h2>
           <div className="exercise-list">
             <div><strong>Squats</strong><br /><span className="tag">Beginner</span><span className="tag">Quads</span></div>
             <div><strong>Romanian Deadlift</strong><br /><span className="tag">Intermediate</span><span className="tag">Hamstrings</span></div>
@@ -36,8 +36,8 @@ export default function ExercisesPage() {
           </div>
         </div>
 
-        <div className="card">
-          <h2>Shoulders</h2>
+        <div className="card exe-card exe-shoulders">
+          <h2><span className="icon">🛡️</span> Shoulders</h2>
           <div className="exercise-list">
             <div><strong>Overhead Press</strong><br /><span className="tag">Intermediate</span><span className="tag">Strength</span></div>
             <div><strong>Lateral Raises</strong><br /><span className="tag">Beginner</span><span className="tag">Definition</span></div>
@@ -45,8 +45,8 @@ export default function ExercisesPage() {
           </div>
         </div>
 
-        <div className="card">
-          <h2>Arms</h2>
+        <div className="card exe-card exe-arms">
+          <h2><span className="icon">🦾</span> Arms</h2>
           <div className="exercise-list">
             <div><strong>Bicep Curls</strong><br /><span className="tag">Beginner</span><span className="tag">Biceps</span></div>
             <div><strong>Triceps Dips</strong><br /><span className="tag">Intermediate</span><span className="tag">Triceps</span></div>
@@ -54,8 +54,8 @@ export default function ExercisesPage() {
           </div>
         </div>
 
-        <div className="card">
-          <h2>Core</h2>
+        <div className="card exe-card exe-core">
+          <h2><span className="icon">🧘</span> Core</h2>
           <div className="exercise-list">
             <div><strong>Planks</strong><br /><span className="tag">Beginner</span><span className="tag">Stability</span></div>
             <div><strong>Crunches</strong><br /><span className="tag">Beginner</span><span className="tag">Abs</span></div>

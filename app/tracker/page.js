@@ -1,6 +1,6 @@
 "use client";
 
-// Last updated: 2026-11-03
+// Last updated: 2026-11-08
 import { useEffect, useRef, useState } from 'react';
 import { getTrackerEntries, saveTrackerEntry, getCurrentMember } from '../lib/supabase/memberService';
 
@@ -49,7 +49,9 @@ export default function TrackerPage() {
     const stepX = (width - padding * 2) / (labels.length - 1 || 1);
     const stepY = (height - padding * 2) / (maxValue - minValue || 1);
 
-    ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+    // Use a theme-aware color for grid lines
+    const gridColor = getComputedStyle(document.body).getPropertyValue('--border') || 'rgba(0,0,0,0.1)';
+    ctx.strokeStyle = gridColor;
     ctx.lineWidth = 1;
     for (let i = 0; i <= 4; i += 1) {
       const y = padding + (height - padding * 2) * (i / 4);
@@ -66,7 +68,7 @@ export default function TrackerPage() {
       if (index === 0) ctx.moveTo(x, y);
       else ctx.lineTo(x, y);
     });
-    ctx.strokeStyle = '#ff6b35';
+    ctx.strokeStyle = '#ff6b35'; // Accent orange
     ctx.lineWidth = 3;
     ctx.stroke();
 
@@ -75,7 +77,7 @@ export default function TrackerPage() {
       const y = height - padding - (value - minValue) * stepY;
       ctx.beginPath();
       ctx.arc(x, y, 5, 0, Math.PI * 2);
-      ctx.fillStyle = '#1cc9a0';
+      ctx.fillStyle = '#1cc9a0'; // Accent teal
       ctx.fill();
     });
   }, [entries]);
@@ -108,7 +110,7 @@ export default function TrackerPage() {
             {member 
               ? (
                 <>
-                  Welcome back, <span style={{ fontSize: '1.4rem', fontWeight: 'bold', color: '#fdfd96' }}>{member.full_name}</span>! Your current goal: <span style={{ fontSize: '1.4rem', fontWeight: 'bold', color: '#fdfd96' }}>{member.goal.toUpperCase()}</span>.
+                  Welcome back, <span style={{ fontSize: '1.4rem', fontWeight: 'bold', color: 'var(--accent)' }}>{member.full_name}</span>! Your current goal: <span style={{ fontSize: '1.4rem', fontWeight: 'bold', color: 'var(--accent)' }}>{member.goal.toUpperCase()}</span>.
                 </>
               ) 
               : "Track your weekly weight changes and stay motivated with a simple visual chart."}

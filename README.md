@@ -2,7 +2,7 @@
 
 FitForge is a comprehensive fitness management platform built with Next.js and Supabase. It provides users with tools to track their fitness journey, manage profiles, and monitor progress through a secure, authenticated system.
 
-**Last updated: 2026-11-07**
+**Last updated: 2026-11-08**
 
 ## 🚀 Key Features
 
@@ -27,8 +27,22 @@ FitForge is a comprehensive fitness management platform built with Next.js and S
 
 - **Frontend:** Next.js 14 (App Router), React, CSS
 - **Backend/Database:** Supabase (PostgreSQL + Auth)
+- **Auth Pattern:** Supabase Auth combined with a custom `public.members` profile table.
+- **Access Control:** `AuthGate` component for frontend routing and Row-Level Security (RLS) for database access.
 
-## 📖 Setup & Documentation
+## 🏗️ Technical Architecture
+
+### Data Flow
+1. **Authentication:** Users authenticate via Supabase Auth.
+2. **Profile Management:** A corresponding record in the `members` table stores the user's full name, fitness goal, and admin status.
+3. **Tracking:** Weight entries are stored in the `trackers` table, linked via `member_id` and `user_id` for double-layered security.
+4. **Admin Access:** Administrative privileges are currently granted via a hardcoded email check (`rai.rahul.kumar509@gmail.com`) to ensure the lead has immediate access.
+
+### Critical Components
+- `app/lib/supabase/memberService.js`: Centralized data access layer for all member and tracker operations.
+- `app/components/AuthGate.js`: Higher-order component ensuring authenticated access to protected routes.
+- `app/api/signup/route.js`: Server-side handler for account creation and profile synchronization.
+
 
 ### Database Setup
 For Supabase credentials, schema migration, tracker verification, and troubleshooting, see the [Database Setup Guide](./DATABASE_SETUP.md).

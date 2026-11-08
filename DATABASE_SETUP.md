@@ -9,6 +9,11 @@ The app uses Supabase Auth and Postgres. The progress tracker reads and writes
 the signed-in user's rows in `public.trackers`; row-level security (RLS)
 prevents users from accessing another user's rows.
 
+**Data Model:**
+- `public.members`: Stores profile data. Linked to `auth.users` via `user_id`.
+- `public.trackers`: Stores weight logs. Linked to `public.members` via `member_id` and `auth.users` via `user_id`.
+
+**Core Logic:**
 - `app/lib/supabase/client.js` creates the browser client from the two
   `NEXT_PUBLIC_SUPABASE_*` environment variables.
 - `app/lib/supabase/memberService.js` handles authentication and tracker
@@ -17,6 +22,7 @@ prevents users from accessing another user's rows.
   when the form is submitted.
 - `db-schema/0001_init.sql` defines the `members` and `trackers` tables,
   indexes, member-id trigger, and authenticated-user RLS policies.
+
 
 ## Connect a Supabase project
 
