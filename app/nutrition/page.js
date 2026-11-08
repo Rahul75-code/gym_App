@@ -5,25 +5,46 @@ export default function NutritionPage() {
       <section className="page-head">
         <p className="eyebrow">Fuel your results</p>
         <h1>Nutrition Corner</h1>
-        <p>Enjoy simple meal ideas, healthy recipes, and practical nutrition guidance for everyday performance.</p>
+        <p className="page-description">Enjoy <span className="text-accent">simple meal ideas</span>, <span className="text-accent">healthy recipes</span>, and <span className="text-accent">practical nutrition guidance</span> for everyday performance.</p>
       </section>
 
       <div className="grid-4">
         <div className="card nutri-card nutri-meal">
           <h2><span className="icon">🥗</span> Meal Plan Tip</h2>
-          <p>Balance protein, complex carbs, and healthy fats in every meal to stay energized and support muscle recovery.</p>
+          <p className="page-description"><span className="text-accent">Balance protein</span>, <span className="text-accent">complex carbs</span>, and <span className="text-accent">healthy fats</span> in every meal to stay energized and support muscle recovery.</p>
+          <ul>
+            <li>Include a protein source in every meal</li>
+            <li>Prioritize leafy greens and colorful veg</li>
+            <li>Use complex carbs for sustained energy</li>
+            <li>Limit processed sugars and refined oils</li>
+          </ul>
+          <a href="#nutrition-essentials" className="btn-secondary">View Habits</a>
         </div>
         <div className="card nutri-card nutri-recipe">
           <h2><span className="icon">🍳</span> Healthy Recipe</h2>
-          <p>Try a grilled chicken bowl with rice, avocado, greens, and a light dressing for a quick post-workout lunch.</p>
+          <p className="page-description">Try a <span className="text-accent">grilled chicken bowl</span> with rice, avocado, greens, and a <span className="text-accent">light dressing</span> for a quick post-workout lunch.</p>
+          <ul>
+            <li>Grilled Chicken Breast (150g)</li>
+            <li>Brown Rice or Quinoa (1 cup)</li>
+            <li>Fresh Spinach & Avocado</li>
+            <li>Olive Oil & Lemon Dressing</li>
+          </ul>
+          <a href="#meal-ideas" className="btn-secondary">More Ideas</a>
         </div>
         <div className="card nutri-card nutri-supp">
           <h2><span className="icon">💊</span> Supplement Guide</h2>
-          <p>Use supplements carefully and focus first on hydration, sleep, and a solid diet before adding extra products.</p>
+          <p className="page-description">Use supplements carefully and focus first on <span className="text-accent">hydration</span>, <span className="text-accent">sleep</span>, and a <span className="text-accent">solid diet</span> before adding extra products.</p>
+          <ul>
+            <li>Creatine Monohydrate (5g/day)</li>
+            <li>Whey/Plant Protein (post-workout)</li>
+            <li>Omega-3 Fish Oil (for joints/heart)</li>
+            <li>Multivitamins (if diet is lacking)</li>
+          </ul>
+          <a href="#supplement-info" className="btn-secondary">Learn More</a>
         </div>
         <div className="card nutri-card nutri-protein protein-card">
           <h2><span className="icon">🥩</span> Protein Sources</h2>
-          <p>Choose high-quality protein every day to fuel recovery and maintain lean muscle.</p>
+          <p className="page-description">Choose <span className="text-accent">high-quality protein</span> every day to fuel <span className="text-accent">recovery</span> and maintain <span className="text-accent">lean muscle</span>.</p>
           <ul>
             <li>Chicken breast — 31 g/100 g</li>
             <li>Salmon — 25 g/100 g</li>
@@ -37,9 +58,9 @@ export default function NutritionPage() {
 
       <section className="nutrition-details">
         <div id="protein-corner" className="protein-section">
-          <h2>Protein Corner</h2>
+          <h2>Protein Corner </h2>
           <h3>Why Protein Matters</h3>
-          <p>Protein is vital for muscle repair, growth, and recovery. It supports metabolism, helps maintain lean mass, and keeps you fuller for longer — essential for both bulking and cutting phases.</p>
+          <p className="protein-highlight">Protein is vital for muscle repair, growth, and recovery. It supports metabolism, helps maintain lean mass, and keeps you fuller for longer — essential for both bulking and cutting phases.</p>
 
           <div className="protein-grid">
             <div className="protein-table card">
@@ -73,7 +94,7 @@ export default function NutritionPage() {
           </div>
         </div>
         <h2>Nutrition Essentials</h2>
-        <p>Good nutrition is built on consistency, whole foods, and realistic habits. These practical tips help you stay on track no matter how busy your day gets.</p>
+        <p className="page-description">Good nutrition is built on <span className="text-accent">consistency</span>, <span className="text-accent">whole foods</span>, and <span className="text-accent">realistic habits</span>. These practical tips help you stay on track no matter how busy your day gets.</p>
 
         <div className="grid-2">
           <div className="card">

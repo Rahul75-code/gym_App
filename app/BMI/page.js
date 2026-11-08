@@ -34,7 +34,7 @@ export default function CalculatorPage() {
       <section className="page-head">
         <p className="eyebrow">Calculate your starting point</p>
         <h1>BMI &amp; Fitness Calculator</h1>
-        <p>Use these estimates to understand your body measurements, energy needs, and targets.</p>
+        <p className="page-description">Use these estimates to understand your <span className="text-accent">body measurements</span>, <span className="text-accent">energy needs</span>, and <span className="text-accent">targets</span>.</p>
       </section>
 
       <div className="grid-2">

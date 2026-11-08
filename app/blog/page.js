@@ -5,7 +5,7 @@ export default function BlogPage() {
       <section className="page-head">
         <p className="eyebrow">Learn and grow</p>
         <h1>Blog &amp; Articles</h1>
-        <p>Read motivation, recovery tips, fitness guidance, and practical advice to support your routine.</p>
+        <p className="page-description">Read <span className="text-accent">motivation</span>, <span className="text-accent">recovery tips</span>, <span className="text-accent">fitness guidance</span>, and <span className="text-accent">practical advice</span> to support your routine.</p>
       </section>
 
       <div className="grid-3">

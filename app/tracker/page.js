@@ -113,7 +113,7 @@ export default function TrackerPage() {
                   Welcome back, <span style={{ fontSize: '1.4rem', fontWeight: 'bold', color: 'var(--accent)' }}>{member.full_name}</span>! Your current goal: <span style={{ fontSize: '1.4rem', fontWeight: 'bold', color: 'var(--accent)' }}>{member.goal.toUpperCase()}</span>.
                 </>
               ) 
-              : "Track your weekly weight changes and stay motivated with a simple visual chart."}
+              : <span className="page-description">Track your <span className="text-accent">weekly weight changes</span> and <span className="text-accent">stay motivated</span> with a <span className="text-accent">simple visual chart</span>.</span>}
           </p>
         </div>
         <p className="eyebrow" style={{ textAlign: 'right', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>

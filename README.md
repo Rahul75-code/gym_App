@@ -38,6 +38,12 @@ FitForge is a comprehensive fitness management platform built with Next.js and S
 3. **Tracking:** Weight entries are stored in the `trackers` table, linked via `member_id` and `user_id` for double-layered security.
 4. **Admin Access:** Administrative privileges are currently granted via a hardcoded email check (`rai.rahul.kumar509@gmail.com`) to ensure the lead has immediate access.
 
+### UI & Design System
+- **Theme Architecture:** Variable-First system supporting a "Glassy" aesthetic in both Light and Dark modes.
+- **Design Language:** Use of semi-transparent panels (`rgba`), backdrop blurs, and a consistent accent color (`--accent`).
+- **Interactive Elements:** Dynamic underlines for sub-headings and a "lift-and-shadow" hover system for cards.
+- **Thematic Coloring:** Context-aware colors for different sections (e.g., Nutrition and Exercises) to improve scannability.
+
 ### Critical Components
 - `app/lib/supabase/memberService.js`: Centralized data access layer for all member and tracker operations.
 - `app/components/AuthGate.js`: Higher-order component ensuring authenticated access to protected routes.

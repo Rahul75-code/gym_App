@@ -38,8 +38,10 @@ export default function AdminPage() {
     <main className="admin-page">
       <header className="admin-header">
         <div>
-          <h1>FitForge Admin Console</h1>
-          <p>Manage members and monitor fitness progress across the platform.</p>
+          <h1 style={{ margin: '0' }}>FitForge Admin Console</h1>
+          <p className="page-description">
+            <span className="text-accent">Manage members</span> and <span className="text-accent">monitor fitness progress</span> across the platform.
+          </p>
         </div>
         <button className="btn btn-secondary" onClick={async () => {
           await signOutMember();
