@@ -14,10 +14,10 @@ export default function HomePage() {
           </p>
           <div className="hero-actions">
             <Link className="btn btn-primary" href="/BMI">
-              🚀 Try BMI
+              Try BMI
             </Link>
             <Link className="btn btn-secondary" href="/exercises">
-              🏋️ Explore Exercises
+              Explore Exercises
             </Link>
           </div>
         </div>

@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { getCurrentMember, signOutMember } from '../lib/supabase/memberService';
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [member, setMember] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -21,7 +23,6 @@ export default function Navbar() {
     }
     checkUser();
 
-    // Poll for session changes every 2 seconds to ensure Navbar stays in sync
     const interval = setInterval(checkUser, 2000);
     return () => clearInterval(interval);
   }, []);
@@ -29,20 +30,32 @@ export default function Navbar() {
   async function handleLogout() {
     try {
       await signOutMember();
-      window.location.reload(); // Refresh to update navbar state
+      window.location.reload();
     } catch (err) {
       console.error('Logout failed:', err);
     }
   }
 
+  const navItems = [
+    { name: 'Home', path: '/' },
+    { name: 'BMI', path: '/BMI' },
+    { name: 'Exercises', path: '/exercises' },
+    { name: 'Tracker', path: '/tracker' },
+    { name: 'Nutrition', path: '/nutrition' },
+    { name: 'Blog', path: '/blog' },
+  ];
+
   return (
     <nav className="nav-links">
-      <Link href="/">Home</Link>
-      <Link href="/BMI">BMI</Link>
-      <Link href="/exercises">Exercises</Link>
-      <Link href="/tracker">Tracker</Link>
-      <Link href="/nutrition">Nutrition</Link>
-      <Link href="/blog">Blog</Link>
+      {navItems.map((item) => (
+        <Link 
+          key={item.path} 
+          href={item.path} 
+          className={pathname === item.path ? 'active' : ''}
+        >
+          {item.name}
+        </Link>
+      ))}
       
       {!loading && member ? (
         <>
@@ -53,7 +66,7 @@ export default function Navbar() {
           }}>
             {member.full_name.split(' ')[0]}
           </span>
-          {member.is_admin && <Link href="/admin">Admin</Link>}
+          {member.is_admin && <Link href="/admin" className={pathname === '/admin' ? 'active' : ''}>Admin</Link>}
           <button 
             onClick={handleLogout} 
             style={{ 
@@ -71,7 +84,7 @@ export default function Navbar() {
           </button>
         </>
       ) : (
-        !loading && <Link href="/login">Login</Link>
+        !loading && <Link href="/login" className={pathname === '/login' ? 'active' : ''}>Login</Link>
       )}
     </nav>
   );
